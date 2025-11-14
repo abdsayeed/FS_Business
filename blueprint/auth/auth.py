@@ -19,7 +19,7 @@ def login():
     if auth:
         user = users.find_one({'username':auth.username})
         if user is not None:
-            if bcrypt.checkpw(bytes.password.encode('UTF-8'),user['password']):
+            if bcrypt.checkpw(auth.password.encode('UTF-8'),user['password']):
                 token = jwt.encode({
                     'user':auth.username,
                     'admin':user['admin'],

@@ -1,8 +1,9 @@
-from flask import Flask,jsonify,request,make_response
+from flask import Flask,jsonify,request,make_response,Blueprint
 from bson import ObjectId
+from decorators import jwt_required
 
 import globals
-bsuinesses = globals.db.biz
+businesses = globals.db.biz
 
 business_bp = Blueprint('business_bp',__name__)
 

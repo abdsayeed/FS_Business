@@ -3,12 +3,12 @@ from bson import ObjectId
 import uuid
 
 import globals
-bsuinesses = globals.db.biz
+businesses = globals.db.biz
 
 reviews_bp = Blueprint('reviews_bp',__name__)
 
 
-@app.route('/businesses/<string:biz_id>/reviews' ,methods=['POST'])
+@reviews_bp.route('/businesses/<string:biz_id>/reviews' ,methods=['POST'])
 def postReview(biz_id):
     data = request.form
 
@@ -17,7 +17,7 @@ def postReview(biz_id):
         return make_response(jsonify({"Error":"Missing required field"}),400)
     
     try:
-        stars= int(data.get['star'])
+        stars= int(data.get('star'))
         if stars < 1 or stars > 5:
             return make_response(jsonify({"Error":"Invalid star rating should be between 1 and 5"}),400)
     except ValueError:
@@ -33,7 +33,7 @@ def postReview(biz_id):
         "comments":data.get('comments'),
         "star":stars
     }
-    business.update_one(
+    businesses.update_one(
         {"_id":ObjectId(biz_id)},
         {"$push":{"reviews":new_review}}
     )

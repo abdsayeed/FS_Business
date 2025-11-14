@@ -16,15 +16,14 @@ export class BusinessData {
   getLastPageNumber() {
     return Math.ceil(jsonData.length / this.pageSize);
   }
-}
 
-getBusiness(id:any){
-  let datatoreturn:any[] = [];
-  jsonData.forEach(functon(business){
-    if(business._id.$oid == id){
-      datatoreturn.push(business);
-    }
-  })
-  return datatoreturn;
-
+  getBusiness(id: any) {
+    let datatoreturn: any[] = [];
+    jsonData.forEach(function(business) {
+      if (business._id.$oid == id) {
+        datatoreturn.push(business);
+      }
+    });
+    return datatoreturn;
+  }
 }

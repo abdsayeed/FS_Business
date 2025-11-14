@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessData } from '../services/business-data';
-import{routeroutlet,routermodule}from'@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-businesses',
-  imports: [],
+  imports: [RouterOutlet, RouterModule],
   providers: [BusinessData],
   templateUrl: './businesses.html',
   styleUrl: './businesses.css',

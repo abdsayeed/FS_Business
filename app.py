@@ -1,7 +1,7 @@
 from flask import Flask
-from blueprints.auth.auth import auth_bp
-from blueprints.businesses.businesses import business_bp
-from blueprints.reviews.reviews import reviews_bp
+from blueprint.auth.auth import auth_bp
+from blueprint.businesses.businesses import business_bp
+from blueprint.reviews.reviews import reviews_bp
 
 app = Flask(__name__)
 
